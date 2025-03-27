@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 网页不会显示 <img /> 字样，因为html把它解析成标签了 -->
+    <p>This is an <img /> element</p>
+    <!-- 如果想显示标签字样，需要符号转义 references。& 开头，; 结束 -->
+    <p>This is an &lt;img /&gt; element</p>
+    <!-- 别的编码方式。lt、#60、#x3c 都代表 < -->
+    <p>&#60;</p>
+    <p>&#x3C;</p>
+    <p>So what are some other examples of using HTML entities? Well, you often see them used for symbols like the copyright symbol (©), quotes ("), trademark symbol (™), and the ampersand sign.</p>
+  </body>
+</html>
