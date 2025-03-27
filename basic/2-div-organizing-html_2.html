@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="border: 1px solid red; width: 600px">
+      <h2>@sassy_pants_mcgee</h2>
+      <h3>Posted 15m ago</h3>
+      <img src="http://pets-images.dev-apis.com/pets/dog25.jpg" alt="a doggy" />
+      <p>You ever think about barking out the window? What would happen if I didn't bark at them? Keeps me up at night.</p>
+    </div>
+
+    <h3>> 可以使用 article 标签来代替 div,让它更加语义化</h3>
+    <article style="border: 1px solid blue; width: 600px">
+      <h2>@sassy_pants_mcgee</h2>
+      <h3>Posted 15m ago</h3>
+      <img src="http://pets-images.dev-apis.com/pets/dog25.jpg" alt="a doggy" />
+      <p>You ever think about barking out the window? What would happen if I didn't bark at them? Keeps me up at night.</p>
+    </article>
+
+    <h3>> 可以给每个标签添加一个命名良好的 class,让标签更加语义化，便于代码阅读</h3>
+    <div class="social-post">
+      <h2 class="user-name">@sassy_pants_mcgee</h2>
+      <h3 class="posted-date">Posted 15m ago</h3>
+      <img class="profile-picture" src="http://pets-images.dev-apis.com/pets/dog25.jpg" alt="a doggy" />
+      <p class="social-post-text">You ever think about barking out the window? What would happen if I didn't bark at them? Keeps me up at night.</p>
+    </div>
+
+    <h3>> 可以重用一整个div, 用多个结构一样的 div 来组成一个 feed 列表。</h3>
+    <div class="social-feed">
+      <div class="social-post">
+        <h2 class="user-name">@sassy_pants_mcgee</h2>
+        <h3 class="posted-date">Posted 15m ago</h3>
+        <img class="profile-picture" src="http://pets-images.dev-apis.com/pets/dog25.jpg" alt="a doggy" />
+        <p class="social-post-text">You ever think about barking out the window? What would happen if I didn't bark at them? Keeps me up at night.</p>
+      </div>
+      <div class="social-post">
+        <h2 class="user-name">@TailCurious</h2>
+        <h3 class="posted-date">Posted 18m ago</h3>
+        <img class="profile-picture" src="http://pets-images.dev-apis.com/pets/dog26.jpg" alt="a different doggy" />
+        <p class="social-post-text">You ever notice that white bit of fluff behind you? Is that just me? I always try to chase it but it's always gets away. #ScaryTails</p>
+      </div>
+      <div class="social-post">
+        <h2 class="user-name">@haveUrCakeAndEatIt2</h2>
+        <h3 class="posted-date">Posted 21m ago</h3>
+        <img class="profile-picture" src="http://pets-images.dev-apis.com/pets/dog27.jpg" alt="a doggy" />
+        <p class="social-post-text">#BirthdayGrrrrrrrrrrl</p>
+      </div>
+    </div>
+
+    <h3>> 假设要做的一个社交媒体app, 上面的 feed list 可以再放到一个 news 组件里，news 组件放到 app 里。此外，app 还有 nav、footer、sidebar 组件。例如下面这个 nav 组件。</h3>
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-list-item">
+          <!-- 相对路径跳转，相对于当前根域名 -->
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-list-item">
+          <a class="nav-link" href="/news">Newsfeed</a>
+        </li>
+        <li class="nav-list-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-list-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>
