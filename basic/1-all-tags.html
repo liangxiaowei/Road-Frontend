@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    /* don't worry about this yet, it's CSS */
+    .the-red-one {
+      color: red;
+    }
+
+    .the-blue-one {
+      color: blue;
+    }
+
+    .bolded {
+      font-weight: bold;
+    }
+  </style>
+  <body>
+    <h3>> 各种各样的标签</h3>
+    <p>
+      首先我们想一下网站的最基本功能是什么（可以看一下 web
+      的历史），显示文章。文章内容由标题、段落、图片组成，将文章的这些不同部分，命名成不同的标签，例如一级标题用
+      h1 表示，段落用 p 表示，图片用 img
+      表示。不同的标签不一样的显示效果，不一样的功能。
+    </p>
+    <p>
+      标签的可定制性，用不同的 attribute 来接收设置不一样的值，attribute
+      相当于参数。例如 input 标签用 type 属性来改变类型。img 标签用 src
+      属性来改变要显示的图片内容。
+    </p>
+    <!-- 标题标签，从大到小 -->
+    <h3>> h1～h5，标题标签</h3>
+    <h1>This is an h1!</h1>
+    <h2>This is an h2!</h2>
+    <h3>This is an h3!</h3>
+    <h4>This is an h4!</h4>
+    <h5>This is an h5!</h5>
+    <h6>This is an h6!</h6>
+
+    <!-- 段落标签 -->
+    <h3>> p，段落标签</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt modi est
+      sapiente in optio quia inventore quis maxime ullam tenetur?
+    </p>
+    <p>
+      Maxime quibusdam, dolorum quaerat ducimus inventore sunt pariatur et
+      dolore ipsam. Distinctio eum nobis officiis quam quasi exercitationem
+      eaque?
+    </p>
+
+    <!-- 链接标签，跳转到别的链接 -->
+    <h3>> a，链接标签，href 属性 跳转到别的链接。</h3>
+    <a href="https://www.frontendmasters.com">Frontend Masters</a>
+    <a href="https://aka.ms/visual-studio-code">Visual Studio Code</a>
+    <a href="https://www.codepen.io">CodePen</a>
+    <!-- div 块标签 -->
+    <h3>> div， 块标签</h3>
+
+    <div style="width: 100px; height: 100px; background-color: red"></div>
+    <!-- span 行内标签 -->
+    <h3>> span， 行内标签</h3>
+
+    <p>
+      This is <span style="text-decoration: underline">important</span> text
+    </p>
+    <!-- order list -->
+    <h3>> ol+li， order list</h3>
+    <ol>
+      <li>The First One</li>
+      <li>The Second One</li>
+      <li>The Third One</li>
+    </ol>
+    <!-- unorder list -->
+    <h3>> ul+li， unorder list</h3>
+    <ul>
+      <li>An Item in the List</li>
+      <li>Another Item in the List</li>
+      <li>A Yet Different Item in the List</li>
+    </ul>
+    <!-- 按钮 -->
+    <h3>> button</h3>
+    <button>Click me! I don't do anything</button>
+    <h3>
+      > img 图片标签，alt
+      属性，在图像无法显示时的替代文本，也和可访问性相关(盲人提示)
+    </h3>
+    <!-- 图片，alt 属性，鼠标移动上去会有提示，可访问性相关(盲人提示) -->
+    <img
+      src="http://pets-images.dev-apis.com/pets/dog25.jpg"
+      alt="an adorable puppy"
+    />
+    <img
+      src="http://pets-images.dev-apis.com/pets/dog26.jpg"
+      alt="an adorable puppy"
+    />
+    <img
+      src="http://pets-images.dev-apis.com/pets/dog27.jpg"
+      alt="an adorable puppy"
+    />
+    <!-- 输入标签，输入文字，these are the same, type="text" is the default -->
+
+    <h3>> input，输入文字，默认 type="text"。</h3>
+    <input />
+    <input type="text" />
+    <!-- 选颜色 -->
+    <h3>> input type="color"，选颜色</h3>
+    <input type="color" />
+    <!-- 选文件 -->
+    <h3>> input type="file"，选文件</h3>
+    <input type="file" />
+    <!-- 输入数字 -->
+    <h3>> input type="number"，输入数字</h3>
+    <input type="number" />
+    <!-- 选日期 -->
+    <h3>> nput type="datetime-local"，选日期</h3>
+    <input type="datetime-local" />
+    <!-- 单选选项 -->
+    <h3>> input type="radio"，单选选项</h3>
+    <input type="radio" />
+    <!-- 多选选项 -->
+    <h3>> input type="checkbox"，多选选项</h3>
+    <input type="checkbox" />
+    <!-- 多行文字输入 -->
+    <h3>> textarea，多行文字输入</h3>
+    <textarea></textarea>
+    <!-- 下拉选择 -->
+    <h3>> select + option，下拉选择</h3>
+    <select>
+      <option value="seattle">Seattle</option>
+      <option value="portland">Portland</option>
+      <option value="san-francisco">San Francisco</option>
+    </select>
+    <!-- 表单输入 -->
+    <h3>> form，表单标签，包裹一些用户输入项</h3>
+    <form>
+      <!-- input placeholder 属性，未输入前的提示文字 -->
+      <input placeholder="First Name" />
+      <input placeholder="Last Name" />
+    </form>
+    <!-- 表格 -->
+    <h3>> table+tbody+tr+td，表格</h3>
+    <table>
+      <tbody>
+        <tr>
+          <td>(0,0)</td>
+          <td>(1,0)</td>
+        </tr>
+        <tr>
+          <td>(0,1)</td>
+          <td>(1,1)</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- old, deprecated tag from the MySpace days -->
+    <h3>> marquee，跑马灯效果，已废弃</h3>
+    <marquee>
+      This is a really old feature that only works in some browsers. You should
+      never use it for a real website.
+    </marquee>
+    <h3>
+      > html 内容应该如何换行？直接输入换行是不起作用的，可以用多个 p
+      标签(块元素)，可以加个 br 标签
+    </h3>
+    <p>
+      第一行
+      <br />
+      第二行
+    </p>
+    <h3>
+      > 所有标签都可以有 class、id 属性，用于 js 获取标签，css
+      设置标签。例如下面两个 p 标签设置了不同的 class，css 里不同的 class
+      指定了不同的颜色。
+    </h3>
+    <p class="the-red-one">This one is red</p>
+    <p class="the-blue-one">This one is blue</p>
+    <h3>> class 属性里可以设置多个值，这样就可以应用多个 css 效果。</h3>
+    <p class="the-red-one bolded">This one is red and bold</p>
+  </body>
+</html>
