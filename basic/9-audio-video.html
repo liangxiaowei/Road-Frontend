@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- loop: 循环播放，controls 显示控制UI, muted 一开始静音 -->
+    <audio src="https://cdn.freecodecamp.org/curriculum/js-music-player/can't-stay-down.mp3" loop controls muted></audio>
+    <!-- 从上到下选择支持的音频格式 -->
+    <audio controls>
+      <source src="audio.ogg" type="audio/ogg" />
+      <source src="audio.wav" type="audio/wav" />
+      <source src="audio.mp3" type="audio/mpeg" />
+    </audio>
+    <!-- 视频，poster 视频封面属性;width 视频 UI 宽度 -->
+    <video src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4" poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217" width="620" loop controls muted></video>
+  </body>
+</html>

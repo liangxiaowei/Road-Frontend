@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a {
+        text-decoration: none;
+      }
+
+      a:link {
+        color: violet;
+      }
+
+      a:visited {
+        color: green;
+      }
+
+      a:hover {
+        background: gray;
+      }
+
+      a:active {
+        background: orange;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>target 属性</h2>
+    <section>
+      <h3>> 不设置 target，默认为 "_self" 当前窗口打开</h3>
+      <a href="https://freecodecamp.org">Visit freeCodeCamp(current window)</a>
+      <h3>> target="_self" 当前窗口打开</h3>
+      <a href="https://freecodecamp.org" target="_self">Visit freeCodeCamp</a>
+      <h3>> target="_blank" 新窗口打开</h3>
+      <a href="https://freecodecamp.org" target="_blank">Visit freeCodeCamp</a>
+      <h3>> target="_parent" 父窗口打开，例如嵌入了一个 iFrame, iFrame 里的一个链接为 _prarent，则会刷新外面的当前窗口</h3>
+      <h3>> target="_top" 最外面窗口打开，例如嵌入了两个 iFrame, 最里面的 iFrame 里的一个链接为 _top，则会刷新最外面的当前窗口</h3>
+      <h3>> target="_unfencedTop" 实验性功能</h3>
+    </section>
+    <h2>href 属性</h2>
+    <section>
+      <h3>> 绝对路径</h3>
+      <a href="https://design-style-guide.freecodecamp.org/img/fcc_secondary_small.svg"> View fCC Logo </a>
+      <h3>> 本地文件绝对路径，需要这个文件也是用本地路径打开的(不是从服务器)</h3>
+      <!-- file:///Users/user/Desktop/fCC/script-code/absolute-vs-relative-paths/pages/about.html -->
+      <p>
+        Read more on the
+        <a href="/home/pdway/doc/Road-Frontend/basic/10-iframe.html">About Page</a>
+      </p>
+      <h3>> 相对路径, 根据当前网址拼接，可用 ./ ../ / 指定怎么拼接</h3>
+      <p>
+        Read more on the
+        <a href="about.html">About Page</a>
+      </p>
+      <p>
+        ./ Read more on the
+        <a href="./about.html">About Page</a>
+      </p>
+      <p>
+        ../ Read more on the
+        <a href="../about.html">About Page</a>
+      </p>
+      <p>
+        / Read more on the
+        <a href="/about.html">About Page</a>
+      </p>
+    </section>
+    <h2>link state</h2>
+    <section>
+      <h3>link 有不同的状态，默认是 :link，点击过是 :visited，鼠标移上去是 :hover，获得焦点是 :focus，用户触发点击时 :active</h3>
+      <h3>可以用 css 来改变不同状态的样式</h3>
+    </section>
+  </body>
+</html>
