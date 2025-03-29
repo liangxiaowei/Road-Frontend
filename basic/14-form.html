@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>form 为了收集用户信息，让用户输入选择一些的信息。</h1>
+    <!-- action 是用户提交时候触发的，表示提交到哪个服务器地址 -->
+    <form action="url-goes-here">
+      <!-- input elements go here -->
+      <input type="text" />
+      <!-- label 标签代表输入的内容是什么 -->
+      <label>
+        Full Name:
+        <input type="text" />
+      </label>
+      <!-- input 除了嵌套进 label, 也可以分开写。用 for 和 id 来连接。 -->
+      <label for="email"> Email Address: </label>
+      <!-- placeholder 未输入前的提示 -->
+      <input type="email" id="email" placeholder="Ex. example@email.com" />
+      <p>required 代表这个是必填的，minlength、maxlength 限制输入的长度</p>
+      <input required type="email" name="email" id="email" minlength="4" maxlength="64" />
+      <p>input 有不同的状态，一开始是 default。当用户点击输入框或者使用 tab 来切换输入框，会变成 focus。</p>
+      <p>disable state 代表禁止输入</p>
+      <input disabled type="email" name="email" id="email" />
+      <p>readonly state 只能读,不能修改。readonly 可以被 focus, disable 不能。</p>
+      <!-- value 是输入框里的值 -->
+      <input readonly type="email" name="email" id="email" value="example@email.com" />
+      <!-- button 触发一些动作，默认啥也不做 -->
+      <p>button 触发一些动作，默认啥也不做</p>
+      <button>Start Game</button>
+      <button type="button">Show Alert</button>
+      <!-- 触发表单重置 -->
+      <p>触发表单重置，清空用户输入</p>
+      <button type="reset">Reset form</button>
+      <!-- 触发表单提交 -->
+      <p>触发表单提交</p>
+      <button type="submit">Submit form</button>
+      <!-- 也可以用 input 来作为 button -->
+      <p>也可以用 input 来作为 button。input 是 void element,里面不能包裹内容。button 可以，可以包裹文字，图片等。</p>
+      <input type="button" value="Show Alert" />
+    </form>
+  </body>
+</html>

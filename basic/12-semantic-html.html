@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>> h 标签</h1>
+    <p>h1、h2、h3 顺序排列，不能跳过，不能乱序，不要只是为了让字体变大而使用 h 标签，H 标签代表是页面标题。</p>
+    <div>
+      <section>
+        <h1>h1 freeCodeCamp</h1>
+        <h2>h2 Learn Front-End Development</h2>
+        <h2>h2 Learn Back-End Development</h2>
+      </section>
+    </div>
+    <!-- i idiomatic text element -->
+    <h1>> i 标签</h1>
+    <p>idiomatic text element，本来是为了让文字变成斜体，现在是为了 highlighting alternative voice or mood, idiomatic terms from another language, technical terms, and thoughts.</p>
+    <p>不是为了突出文字的重要性，只是表示这个文字与周边的文字不同。</p>
+    <!-- lang="fr" 代表是法语 -->
+    <p>There is a certain <i lang="fr">je ne sais quoi</i> in the air.</p>
+    <h1>> em 标签</h1>
+    <p>em 标签用来强调东西，类似一句话重音的地方</p>
+    <p>Never give up on <em>your</em> dreams.</p>
+    <p>如果只是要斜体效果，而没别的意思要表达，应该使用 css 实现</p>
+    <h1>> b 标签为了高亮关键词或者产品名称，吸引读者的注意</h1>
+    <p>We tested several products, including the <b>SuperSound 3000</b> for audio quality, the <b>QuickCharge Pro</b> for fast charging, and the <b>EcoClean Vacuum</b> for cleaning. The first two performed well, but the <b>EcoClean Vacuum</b> did not meet expectations.</p>
+    <h1>> strong 标签</h1>
+    <p>为了强调重要性，紧急性</p>
+    <p><strong>Warning:</strong> This product may cause allergic reactions.</p>
+    <!-- em strong 什么区别？ -->
+    <h1>> description list</h1>
+    <dl>
+      <dt>HTML</dt>
+      <dd>HyperText Markup Language</dd>
+      <dt>CSS</dt>
+      <dd>Cascading Style Sheets</dd>
+    </dl>
+    <h1>> blockquote，引用别的地方的文字，自动缩进</h1>
+    <h2>quote1</h2>
+    <blockquote cite="https://www.freecodecamp.org/news/learn-to-code-book/">"Can you imagine what it would be like to be a successful developer? To have built software systems that people rely upon?"</blockquote>
+    <h2>quote2,多个段落</h2>
+    <blockquote cite="https://www.freecodecamp.org/news/learn-to-code-book/">
+      <p>Build your projects. Show them to your friends. Build projects for your friends.</p>
+      <p>Build your network. Help the people you meet along the way. What goes around comes around. You'll get what's coming to you.</p>
+      <p>It is not too late. Life is long.</p>
+      <p>You will look back on this moment years from now and be glad you made a move.</p>
+    </blockquote>
+    <h2>cite element 把出处显示出来</h2>
+    <div>
+      <blockquote cite="https://www.freecodecamp.org/news/learn-to-code-book/">Can you imagine what it would be like to be a successful developer? To have built software systems that people rely upon?</blockquote>
+      <p>—Quincy Larson, <cite>How to Learn to Code and Get a Developer Job [Full Book].</cite></p>
+    </div>
+    <h1>> inline quotes 只是引用几句，自动添加双引号</h1>
+    <p>
+      As Quincy Larson said,
+      <q cite="https://www.freecodecamp.org/news/learn-to-code-book/"> Momentum is everything. </q>
+    </p>
+    <h1>> abbr 表示缩写</h1>
+    <!-- title 为全称 -->
+    <p><abbr title="HyperText Markup Language">HTML</abbr> is the foundation of the web.</p>
+    <h1>> address</h1>
+    <address>
+      <h2>Company Name</h2>
+      <p>
+        1234 Elm Street<br />
+        Springfield, IL 62701<br />
+        United States
+      </p>
+      <p>Phone: <a href="tel:+15555555555">+1 (555) 555-5555</a></p>
+      <!-- mailto: 会唤起邮箱软件 -->
+      <p>Email: <a href="mailto:contact@company.com">contact@company.com</a></p>
+    </address>
+    <h1>> time</h1>
+    <!-- datetime 属性是给机器读的 -->
+    <p>The reservations are for <time datetime="20:00">20:00 </time></p>
+    <!-- 2024-06-15T15:00 是 ISO 8601 format -->
+    <p>The graduation will be on <time datetime="2024-06-15T15:00">June 15</time></p>
+    <h1>> math 等公式。superscript element 右上角显示。subscript element 右下角显示。</h1>
+    <p>2<sup>2</sup> (2 squared) is 4.</p>
+    <p>
+      Monseigneur is often written as <strong>M<sup>gr</sup></strong
+      >.
+    </p>
+    <p>CO<sub>2</sub></p>
+    <h1>> code element 用来显示代码。字体不一样</h1>
+    <h2>单行</h2>
+    <p>
+      To set the text color to blue in CSS, use the following code:
+      <code>color: blue;</code>
+    </p>
+    <h2>多行。pre + code</h2>
+    <pre>
+      <code>
+        body {
+          color: red;
+        }
+      </code>
+    </pre>
+    <h1>> u(unarticulated annotation element) 下划线暗示有问题，例如拼写错误</h1>
+    <p>
+      You can use the unarticulated annotation element to highlight
+      <u>inccccort</u> <u>spling</u> <u>issses</u>.
+    </p>
+    <h1>> s(strikethrough element) 代表信息不再准确、过时。不应该用来表示文档的改变。</h1>
+    <p><s>Tomorrow's hike will be meeting at noon.</s></p>
+
+    <p>Due to unforeseen weather conditions, the hike has been cancelled.</p>
+    <h1>> ruby 文字上面显示注音</h1>
+    <!-- rp为了兼容浏览器不支持 ruby ，不兼容时会显示 rp 的内容 -->
+    <!-- rt 是文字上面显示的内容  -->
+    <ruby> 明日 <rp>(</rp><rt>Ashita</rt><rp>)</rp> </ruby>
+  </body>
+</html>
