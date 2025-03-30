@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 影响所有的 h1 标签  */
+      h1 {
+        color: red;
+      }
+      /* 影响所有的 h2 标签  */
+
+      h2 {
+        color: limegreen;
+        font-size: 60px;
+        font-weight: normal;
+        text-decoration: underline;
+        text-transform: uppercase;
+        border: 3px solid pink;
+      }
+
+      div {
+        color: blue;
+      }
+
+      /* class 选择器。只影响这个 class */
+      .branding {
+        color: pink;
+      }
+
+      .blog-post-title {
+        color: gray;
+      }
+
+      /* 层叠样式，同等优先级，后面定义的会覆盖之前定义的。 when everything is equal, the last one gets applied  */
+      .title {
+        color: red;
+      }
+
+      .title {
+        color: green;
+      }
+
+      .main-brand-2 {
+        border: 1px solid black;
+        color: red;
+      }
+
+      .title-2 {
+        color: green;
+      }
+
+      /* 同时有这两个 class 。比只有一个 class 的优先级高。即使定义在前 */
+      .main-brand-3.title-3 {
+        color: red;
+      }
+
+      .title-3 {
+        color: green;
+      }
+
+      /* class 比 标签优先级高 */
+      .title-4 {
+        color: orange;
+      }
+
+      h4 {
+        color: green;
+      }
+
+      /* 两个 class > 一个标签+class > 一个 class  */
+      h1.main-brand-5 {
+        color: red;
+      }
+
+      .main-brand-5.title-5 {
+        color: orange;
+      }
+
+      .main-brand-5 {
+        color: green;
+      }
+
+      /* 不推荐使用 ID、!important */
+      /* id 的优先级大于 class、标签 */
+      #site-brand {
+        color: red;
+      }
+
+      h1.nav-head.nav-main.other-useful-class {
+        /*
+     * this class is way too specific; never have a class selector so long
+     * it's ridiculous and just to illustrate a point
+     */
+        color: green;
+      }
+
+      /* !important 优先级最高 */
+      #site-brand-2 {
+        color: red;
+        border: 1px solid red;
+      }
+
+      .nav-head-2 {
+        color: green !important;
+        border: 1px solid green;
+      }
+
+      .hover-example {
+        width: 100px;
+        height: 100px;
+        background-color: limegreen;
+        color: white;
+      }
+      /* 鼠标放上去后的效果 */
+      .hover-example:hover {
+        background-color: crimson;
+        width: 150px;
+        height: 150px;
+      }
+
+      .first-child-example {
+        color: crimson;
+      }
+      .first-child-example:first-child {
+        color: limegreen;
+      }
+
+      .chapter {
+        margin: 0;
+      }
+      .chapter::after {
+        content: "❦";
+        font-size: 50px;
+        text-align: center;
+        display: block;
+      }
+
+      /* 全选选择器 应用于全部元素 */
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <p>h1 标签选择器影响所有 h1 标签</p>
+    <h1>This is an h1.</h1>
+    <h1>This is an h1.</h1>
+    <p>h2 标签选择器</p>
+    <h2>This is an h1.</h2>
+    <p>父元素影响子元素，如果子元素没有样式</p>
+    <div>
+      <!-- div 影响了 h3 。子节点继承父节点的一些属性 -->
+      <h3>An h3</h3>
+    </div>
+    <p>使用不同的 class 选择器。</p>
+    <h1 class="branding">My Super Cool Brand</h1>
+    <h1 class="blog-post-title">My Cool Blog Post</h1>
+
+    <p>层叠的选择器，每个 css 属性单独讨论。</p>
+    <p>同等优先级的时候，style 里选择器定义顺序，后来居上。</p>
+    <h1 class="title">Cool Title</h1>
+
+    <p>跟 class="" 里使用的顺序无关，跟 style 定义的顺序有关</p>
+    <!-- 跟这里使用的顺序无关，跟 style 定义的顺序有关 -->
+    <h1 class="title-2 main-brand-2">Branding here</h1>
+
+    <p>同时有两个 class 的选择器比只有一个 class 选择器的优先级高。即使定义在前</p>
+    <h1 class="title-3 main-brand-3">Branding here</h1>
+
+    <p>class 选择器 > 标签选择器</p>
+    <h4 class="title-4">Another h4</h4>
+
+    <p>两个 class > 一个标签+class > 一个 class</p>
+    <h1 class="title-5 main-brand-5">Another Example</h1>
+
+    <p>id 的优先级大于 class、标签</p>
+    <h1 id="site-brand" class="nav-head nav-main other-useful-class">The Brand of my Website</h1>
+
+    <p>!important 优先级最高</p>
+    <h1 id="site-brand-2" class="nav-head-2 nav-main-2 other-useful-class-2">The Brand of my Website</h1>
+
+    <p>:hover 鼠标放上去后的效果</p>
+    <div class="hover-example">Hover your mouse over me</div>
+
+    <p>:first-child 第一个子元素</p>
+    <ol>
+      <li class="first-child-example">First</li>
+      <li class="first-child-example">Second</li>
+      <li class="first-child-example">Third</li>
+    </ol>
+
+    <p>::after 后面增加一个伪元素</p>
+
+    <div class="chapter">This is a chapter of my book.</div>
+
+    <div class="chapter">This is a second chapter of my book.</div>
+  </body>
+</html>

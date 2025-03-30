@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .box-1 {
+        border: 1px solid black;
+        color: white;
+        background-color: blue;
+        height: 150px;
+        width: 300px;
+      }
+
+      .box-2 {
+        border: 1px solid black;
+        color: white;
+        background-color: red;
+        height: 100px;
+        width: 300px;
+      }
+
+      .box-3 {
+        border: 1px solid black;
+        color: white;
+        background-color: green;
+        height: 200px;
+        width: 100px;
+      }
+
+      .floated div {
+        /* 从左到有 float 尽可能排，没有空间就换行 */
+        float: left;
+      }
+
+      .flex-container {
+        display: flex;
+        width: 100%;
+        border: 1px solid black;
+      }
+
+      /* 从右到左排  */
+      .reverse {
+        flex-direction: row-reverse;
+      }
+
+      /* 一列排 */
+      .column {
+        flex-direction: column;
+      }
+
+      /* 主轴靠后，默认是 flex-start */
+      .jc-right {
+        justify-content: flex-end;
+      }
+      /* 居中 */
+      .jc-center {
+        justify-content: center;
+      }
+
+      /* 间隔平分。前后无空间 */
+      .jc-sb {
+        justify-content: space-between;
+      }
+
+      /* 间隔平分。前后也有空间 */
+      .jc-sa {
+        justify-content: space-around;
+      }
+
+      /* 副轴靠后 */
+      .ai-fe {
+        align-items: flex-end;
+      }
+
+      /* 副轴居中 */
+      .ai-center {
+        align-items: center;
+      }
+
+      /* 副轴拉伸 */
+      .ai-stretch {
+        align-items: stretch;
+        height: 200px;
+      }
+
+      .no-height {
+        height: unset;
+      }
+
+      .ai-grow {
+        /* nothing necessary here */
+      }
+
+      /* 宽度按 grow 比例分 */
+      .ai-grow .box-1 {
+        flex-grow: 1;
+        width: 0;
+      }
+      .ai-grow .box-2 {
+        flex-grow: 5;
+        width: 0;
+      }
+      .ai-grow .box-3 {
+        flex-grow: 10;
+        width: 0;
+      }
+
+      /* align-self 子元素，单独改变自己 */
+    </style>
+  </head>
+  <body>
+    <div class="box-1">1</div>
+    <div class="box-2">2</div>
+    <div class="box-3">3</div>
+
+    <p>float</p>
+    <div class="floated">
+      <div class="box-1">1</div>
+      <div class="box-2">2</div>
+      <div class="box-3">3</div>
+    </div>
+
+    <!-- 清除浮动 -->
+    <p style="clear: left">flex</p>
+    <div class="flex-container">
+      <div class="box-1">1</div>
+      <div class="box-2">2</div>
+      <div class="box-3">3</div>
+    </div>
+
+    <p>reverse</p>
+    <div class="flex-container reverse">
+      <div class="box-1">1</div>
+      <div class="box-2">2</div>
+      <div class="box-3">3</div>
+    </div>
+
+    <p>column</p>
+    <div class="flex-container column">
+      <div class="box-1">1</div>
+      <div class="box-2">2</div>
+      <div class="box-3">3</div>
+    </div>
+
+    <p>justify-content: flex-end;</p>
+    <div class="flex-container jc-right">
+      <div class="box-1">1</div>
+      <div class="box-2">2</div>
+      <div class="box-3">3</div>
+    </div>
+
+    <p>justify-content: center;</p>
+    <div class="flex-container jc-center">
+      <div class="box-1">1</div>
+      <div class="box-2">2</div>
+      <div class="box-3">3</div>
+    </div>
+
+    <p>justify-content: space-between;</p>
+    <div class="flex-container jc-sb">
+      <div class="box-1">1</div>
+      <div class="box-2">2</div>
+      <div class="box-3">3</div>
+    </div>
+
+    <p>justify-content: space-around;</p>
+    <div class="flex-container jc-sa">
+      <div class="box-1">1</div>
+      <div class="box-2">2</div>
+      <div class="box-3">3</div>
+    </div>
+
+    <p>align-items: flex-end</p>
+    <div class="flex-container ai-fe">
+      <div class="box-1">1</div>
+      <div class="box-2">2</div>
+      <div class="box-3">3</div>
+    </div>
+
+    <p>align-items: flex-end</p>
+    <div class="flex-container ai-fe">
+      <div class="box-1">1</div>
+      <div class="box-2">2</div>
+      <div class="box-3">3</div>
+    </div>
+
+    <p>align-items: center</p>
+    <div class="flex-container ai-center">
+      <div class="box-1">1</div>
+      <div class="box-2">2</div>
+      <div class="box-3">3</div>
+    </div>
+
+    <p>align-items: stretch</p>
+    <div class="flex-container ai-stretch">
+      <div class="box-1 no-height">1</div>
+      <div class="box-2 no-height">2</div>
+      <div class="box-3 no-height">3</div>
+    </div>
+
+    <p>flex-grow:</p>
+    <div class="flex-container ai-grow">
+      <div class="box-1">1/16</div>
+      <div class="box-2">5/16</div>
+      <div class="box-3">10/16</div>
+    </div>
+
+    <p>同时使用</p>
+    <div class="flex-container ai-center reverse jc-sa">
+      <div class="box-1">1</div>
+      <div class="box-2">2</div>
+      <div class="box-3">3</div>
+    </div>
+
+    <div class="flex-container ai-fe column">
+      <div class="box-1">1</div>
+      <div class="box-2">2</div>
+      <div class="box-3">3</div>
+    </div>
+  </body>
+</html>

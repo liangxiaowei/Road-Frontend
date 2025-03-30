@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: blue;
+      }
+      .ex-box {
+        border: 3px solid #aaa;
+        background-color: #eee;
+
+        height: 200px;
+        width: 200px;
+        /*
+          display: block; 独占一行，可以设置宽高。div 默认的 display。
+          display: inline; 行内，不可以设置宽高，浏览器自动计算。span 默认的 display。
+          display: inline-block; 行内，可以设置宽高。
+          display：flex。 独占一行，可以设置宽高。里面的布局为 flex
+          display：inline-flex。 行内，可以设置宽高。里面的布局以 flex
+          display：grid。 独占一行，可以设置宽高。里面的布局为 grid
+          display：inline-grid。 行内，可以设置宽高。里面的布局以 grid
+          display：table。类似 table 标签。
+         */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        margin-right: 10px;
+        border-radius: 5px;
+        font-size: 30px;
+      }
+      .ex-box:last-of-type {
+        clear: right;
+      }
+
+      /* 宽 = 100% - margin*/
+      .example {
+        border: 3px solid red;
+        padding: 5px;
+        margin: 25px;
+        background-color: white;
+      }
+
+      /* 宽 = border + padding + 200 */
+      .example1 {
+        width: 200px;
+        height: 200px;
+      }
+
+      /* 宽(200) = border + padding + 内容 */
+      .example2 {
+        width: 200px;
+        height: 200px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ex-box">Box 1</div>
+    <div class="ex-box">Box 2</div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="example">Interior Content</div>
+    <div class="example example1">Interior Content</div>
+    <div class="example example2">Interior Content</div>
+  </body>
+</html>
