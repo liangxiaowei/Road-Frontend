@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "main main";
+}
+
+.header {
+  grid-area: header;
+  padding: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.logo {
+  width: 20px;
+  height: 20px;
+}
+
+.main {
+  grid-area: main;
+  display: grid;
+  grid-template-areas:
+    "order-items input-form"
+    "price       price"
+    "order-btn   order-btn";
+}
+
+.order-items {
+  grid-area: order-items;
+}
+
+.input-form {
+  grid-area: input-form;
+}
+
+.price {
+  grid-area: price;
+}
+
+.order-btn {
+  grid-area: order-btn;
+}
