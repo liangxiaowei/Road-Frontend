@@ -7,6 +7,10 @@ body {
   grid-template-areas:
     "header header"
     "main main";
+  margin: 0;
+  padding: 0;
+  background-color: #efefef;
+  font-family: "Open Sans", sans-serif;
 }
 
 .header {
@@ -16,6 +20,11 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  background-color: #43281c;
+  color: #fbf2c0;
+  font-size: 16px;
+  font-weight: normal;
 }
 
 .title {
@@ -23,8 +32,8 @@ body {
 }
 
 .logo {
-  width: 20px;
-  height: 20px;
+  height: 25px;
+  margin-right: 2px;
 }
 
 .main {
@@ -34,10 +43,58 @@ body {
     "order-items input-form"
     "price       price"
     "order-btn   order-btn";
+  padding: 30px;
+  column-gap: 30px;
+  row-gap: 30px;
+  /* 两列平均分 */
+  grid-template-columns: 1fr 1fr;
 }
 
 .order-items {
   grid-area: order-items;
+  display: flex;
+  flex-direction: column;
+  /* margin-right: 20px; */
+}
+
+.order-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  border-bottom: 2px solid #ddb892;
+  display: grid;
+  padding: 10px 0;
+  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-areas:
+    "quantity title price"
+    "quantity options price";
+  row-gap: 8px;
+}
+
+.item-quantity {
+  grid-area: quantity;
+}
+
+.item-title {
+  grid-area: title;
+  font-weight: bold;
+}
+
+.item-price {
+  grid-area: price;
+  font-weight: bold;
+}
+
+.item-options-list {
+  grid-area: options;
+  color: #b08968;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
 }
 
 .input-form {
@@ -46,8 +103,72 @@ body {
 
 .price {
   grid-area: price;
+  display: flex;
+  justify-content: center;
 }
 
 .order-btn {
   grid-area: order-btn;
+  background-color: #deb993;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 100px;
+  font-size: 16px;
+}
+
+.section {
+  background-color: #eee1d5;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+  padding: 15px;
+  margin-bottom: 20px;
+  /* width: 100%; */
+}
+
+.section-name {
+  color: #885a2d;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.input-item {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-item-label {
+  color: #885a2d;
+  background-color: #eee1d5;
+  font-size: 11px;
+  position: absolute;
+  left: 25px;
+  top: -7px;
+  padding: 0 2px;
+}
+
+.input {
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px #885a2d solid;
+  padding: 8px;
+  border-radius: 100px;
+  width: 100%;
+  text-indent: 18px;
+  font-size: 18px;
+}
+
+.totals-table {
+  width: 100%;
+  max-width: 500px;
+}
+
+.totals-table td {
+  padding: 10px;
+}
+
+.totals-table td:last-child {
+  text-align: right;
+}
+
+.final-totals {
+  font-weight: bold;
 }
