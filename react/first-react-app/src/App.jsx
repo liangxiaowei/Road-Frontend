@@ -79,6 +79,79 @@ function DeveloperCard({ name, age, country }) {
   );
 }
 
+function FruitList() {
+  const fruits = ["Apple", "Banana", "Cherry", "Date"];
+  return (
+    <ul>
+      {fruits.map((fruit) => (
+        <li>{fruit}</li>
+      ))}
+    </ul>
+  );
+}
+
+function FruitList2() {
+  const fruits = ["Apple", "Banana", "Cherry", "Date"];
+  return (
+    <ul>
+      {/* 唯一的key有助于 react 识别item，优化渲染 */}
+      {fruits.map((fruit, index) => (
+        <li key={`${fruit}-${index}`}>{fruit}</li>
+      ))}
+    </ul>
+  );
+}
+
+function UserList() {
+  const users = [
+    { id: "user-001-employee", name: "Alice", email: "alice@example.com" },
+    { id: "user-002-employee", name: "Bob", email: "bob@example.com" },
+    { id: "user-003-employee", name: "John", email: "john@example.com" },
+  ];
+  return (
+    <div>
+      {users.map((user) => (
+        <div key={user.id}>
+          <h3>{user.name}</h3>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Button({ buttonText }) {
+  // 用 obj 来声明 css，而不是 string
+  const defaultStyles = {
+    backgroundColor: "#007BFF",
+    color: "white",
+    border: "none",
+    borderRadius: "4px",
+    padding: "10px 20px",
+    // fontSize 而不是 font-size
+    fontSize: "16px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    transition: "background-color 0.3s ease",
+  };
+
+  return <button style={defaultStyles}>{buttonText}</button>;
+}
+
+function Button2({ buttonText }) {
+  return (
+    <button
+      // 直接用 obj
+      style={{
+        fontSize: "20px",
+        background: "#007BFF",
+        color: "white",
+      }}
+    >
+      {buttonText}
+    </button>
+  );
+}
 function App() {
   const [count, setCount] = useState(0);
   const developerObj = {
@@ -102,6 +175,11 @@ function App() {
         <Notification message={"watch out"} />
         {/* 解构对象 */}
         <DeveloperCard {...developerObj} />
+        <FruitList />
+        <FruitList2 />
+        <UserList />
+        <Button buttonText={"button"} />
+        <Button2 buttonText={"button"} />
         <Cat /> {/* 使用导入的 Cat 组件 */}
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -112,12 +190,16 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
     </>
   );
 }
