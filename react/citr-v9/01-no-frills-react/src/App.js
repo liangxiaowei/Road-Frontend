@@ -11,6 +11,7 @@ const Pizza = (props) => {
 
 // 不要做耗时操作，会调用很多次，不要改状态，pure function
 const App = () => {
+  // jsx 干的 就是 React.createElement 的事
   return React.createElement("div", {}, [
     React.createElement("h1", {}, "Padre Gino's"),
     React.createElement(Pizza, {
