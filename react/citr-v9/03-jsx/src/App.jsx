@@ -5,6 +5,7 @@ const App = () => {
   return (
     <div>
       <h1 className="logo">Padre Gino's Pizza</h1>
+
       <Pizza
         name="Pepperoni"
         description="Mozzarella Cheese, Pepperoni"

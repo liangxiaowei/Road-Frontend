@@ -5,6 +5,7 @@ const Pizza = (props) => {
       {}, // 属性，可以是 null
       props.name // 子元素，可以是数组
     ),
+
     React.createElement("p", {}, props.description),
   ]);
 };

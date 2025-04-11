@@ -8,7 +8,7 @@ import reactPlugin from "eslint-plugin-react";
 export default [
   js.configs.recommended,
   {
-    ...reactPlugin.configs.flat.recommended,
+    ...reactPlugin.configs.flat.recommended, // react recommend
     settings: {
       react: {
         version: "detect", // 让 ESLint 自动检测项目中使用的 React 版本，并根据检测到的版本调整相关的 React 规则。
