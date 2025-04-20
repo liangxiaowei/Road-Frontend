@@ -2,6 +2,7 @@ import js from "@eslint/js";
 import globals from "globals";
 import prettier from "eslint-config-prettier";
 import reactPlugin from "eslint-plugin-react";
+import pluginQuery from "@tanstack/eslint-plugin-query";
 
 // 便于 vscode 监测到 type，便于编写提示
 /** @type {import('eslint').Linter.Config[]} */
@@ -16,6 +17,7 @@ export default [
     },
   },
   reactPlugin.configs.flat["jsx-runtime"], // 这个配置的主要作用与 React 17 及以后版本引入的新 JSX 转换机制有关。React 17 引入了新的 JSX 转换方式，不再要求在使用 JSX 的文件中显式导入 React (`import React from 'react'`)。不配置这个，会报错 'React' must be in scope when using JSX
+  ...pluginQuery.configs["flat/recommended"], // 可以检测 useQuery 里的 queryKey 是否缺失
   {
     files: ["**/*.js", "**/*.jsx"],
     languageOptions: {
