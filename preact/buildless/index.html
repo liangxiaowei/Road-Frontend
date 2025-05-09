@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script type="importmap">
+      {
+        "imports": {
+          "preact": "https://unpkg.com/preact@10.26.6/dist/preact.module.js",
+          "preact/hooks": "https://unpkg.com/preact@10.26.6/hooks/dist/hooks.module.js",
+          "htm": "https://unpkg.com/htm@3.1.1/dist/htm.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { h, render } from "preact";
+      import { useState } from "preact/hooks";
+      import htm from "htm";
+
+      const html = htm.bind(h);
+
+      //   function App() {
+      //     let [count, setCount] = useState(0);
+
+      //     return html`
+      //       <div>
+      //         <p>Count: ${count}</p>
+      //         <button onClick=${() => setCount(count + 1)}>Increment</button>
+      //       </div>
+      //     `;
+      //   }
+      function MyButton(props) {
+        return html`<button class="my-button">${props.text}</button>`;
+      }
+
+      //   function MediaPlayer() {
+      //     return html`
+      //       <div>
+      //         <${MyButton} text="Play" />
+      //         <${MyButton} text="Stop" />
+      //       </div>
+      //     `;
+      //   }
+
+      function MediaPlayer(props) {
+        return html`
+          <div>
+            ${props.playing
+              ? html`<${MyButton} text="Stop" />`
+              : html`<${MyButton} text="Play" />`}
+          </div>
+        `;
+      }
+
+      function App() {
+        const color = "green";
+        const onclick = () => {
+          console.log("11");
+        };
+        return html`<p class="big" onclick="${onclick}" style="color:${color};">
+            Hello <em>World!</em>
+          </p>
+          <${MediaPlayer} playing=${false} /> `;
+      }
+
+      render(html`<${App} />`, document.body);
+    </script>
+  </body>
+</html>
