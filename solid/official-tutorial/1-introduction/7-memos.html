@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { createSignal, createMemo } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+      function fibonacci(num) {
+        if (num <= 1) return 1;
+
+        return fibonacci(num - 1) + fibonacci(num - 2);
+      }
+
+      const App = () => {
+        console.log("render");
+        const [count, setCount] = createSignal(10);
+
+        // const fib = () => fibonacci(count());
+        // const fib = () => {
+        //   console.log("Calculating Fibonacci");
+        //   return fibonacci(count());
+        // };
+
+        // const fib = createMemo(() => fibonacci(count()));
+        const fib = createMemo(() => {
+          console.log("Calculating Fibonacci");
+          return fibonacci(count());
+        });
+
+        return html`<button onClick=${() => setCount(count() + 1)}>
+            Count: ${count}
+          </button>
+          <div>1. ${fib} ${fib} ${fib} ${fib} ${fib}</div>
+          <div>2. ${fib} ${fib} ${fib} ${fib} ${fib}</div>
+          <div>3. ${fib} ${fib} ${fib} ${fib} ${fib}</div>
+          <div>4. ${fib} ${fib} ${fib} ${fib} ${fib}</div>
+          <div>5. ${fib} ${fib} ${fib} ${fib} ${fib}</div>
+          <div>6. ${fib} ${fib} ${fib} ${fib} ${fib}</div>
+          <div>7. ${fib} ${fib} ${fib} ${fib} ${fib}</div>
+          <div>8. ${fib} ${fib} ${fib} ${fib} ${fib}</div>
+          <div>9. ${fib} ${fib} ${fib} ${fib} ${fib}</div>
+          <div>10. ${fib} ${fib} ${fib} ${fib} ${fib}</div>`;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>

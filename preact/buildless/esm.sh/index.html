@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- "react": "https://esm.sh/preact@10.26.8/compat",
+          "react/": "https://esm.sh/preact@10.26.8/compat/",
+          "react-dom": "https://esm.sh/preact@10.26.8/compat", -->
     <script type="importmap">
       {
         "imports": {
@@ -9,9 +12,6 @@
           "preact/": "https://esm.sh/preact@10.26.8/",
           "@preact/signals": "https://esm.sh/@preact/signals@2.2.0?external=preact",
           "htm": "https://esm.sh/htm@3.1.1/preact?external=preact"
-          "react": "https://esm.sh/preact@10.26.8/compat",
-          "react/": "https://esm.sh/preact@10.26.8/compat/",
-          "react-dom": "https://esm.sh/preact@10.26.8/compat",
         }
       }
     </script>
@@ -22,26 +22,26 @@
       import { useState } from "preact/hooks";
       import { signal } from "@preact/signals";
 
-      import { html } from 'htm';
+      import { html } from "htm";
+
       const count = signal(0);
+      const increment = () => {
+        // 通过赋值 `.value` 属性更新信号
+        count.value++;
+      };
 
       function Counter2() {
         // 在组件中访问 .value 将会在信号改变时自动重渲染：
         const value = count.value;
 
-        const increment = () => {
-          // 通过赋值 `.value` 属性更新信号
-          count.value++;
-        }
-
         return html`
           <div>
-            <p>Count: ${value}</p>
+            <!-- <p>Count2: ${count.value}</p> -->
+            <p>Count2: ${count}</p>
             <button onClick=${increment}>click me</button>
           </div>
         `;
       }
-
 
       function Button({ action, children }) {
         return html`<button onClick=${action}>${children}</button>`;
@@ -53,7 +53,8 @@
         return html`
           <div class="counter-container">
             <${Button} action=${() => setCount(count + 1)}>增加<//>
-            <input readonly value=${count} />
+            <!-- <input readonly value=${count} /> -->
+            <p>Count: ${count}</p>
             <${Button} action=${() => setCount(count - 1)}>减少<//>
           </div>
         `;
@@ -95,13 +96,12 @@
       function App() {
         const color = "green";
         const onclick = () => {
-
           console.log("11");
         };
         return html`<p class="big" onclick="${onclick}" style="color:${color};">
             Hello <em>World!</em>
           </p>
-          <${MediaPlayer} playing=${false} /> 
+          <${MediaPlayer} playing=${false} />
           <${Counter} />
           <${Counter2} />`;
       }
