@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { For, createSignal } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+
+      const App = () => {
+        const data = [
+          { id: "J---aiyznGQ", name: "Keyboard Cat" },
+          { id: "z_AbfPXTKms", name: "Maru" },
+          { id: "OUtn3pvWmpg", name: "Henri The Existential Cat" },
+        ];
+        const [cats, setCats] = createSignal(data);
+        setTimeout(() => {
+          setCats(data.concat([{ id: "afdsd", name: "4 Cat" }]));
+        }, 1000);
+
+        return html`<ul>
+          <${For} each=${cats}>
+            ${(cat, i) =>
+              html`<li>
+                <a
+                  target="_blank"
+                  href=${`https://www.youtube.com/watch?v=${cat.id}`}
+                >
+                  ${i() + 1}: ${cat.name}
+                </a>
+              </li>`}
+          <//>
+        </ul>`;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>

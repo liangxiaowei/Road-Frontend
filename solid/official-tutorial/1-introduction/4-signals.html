@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { onCleanup, createSignal } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+
+      const App = () => {
+        console.log("render");
+        const [count, setCount] = createSignal(0); // count 是一个 getter 函数
+        const timer = setInterval(() => setCount(count() + 1), 1000); // 使用 count()
+        // const timer = setInterval(() => setCount((c) => c + 1), 1000); // 使用
+
+        onCleanup(() => clearInterval(timer));
+
+        return html`<div>${count}</div>`; // 不需要()
+        // return html`<div>${() => count() + ""}</div>`; // expression 要用 匿名函数包裹
+
+        // return html`<div>${count()}</div>`; // 这样不行，不会自动更新。因为这是一个表达式？这里不能用 count()
+        // return html`<div>${count() + ""}</div>`; // 这样不行
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>

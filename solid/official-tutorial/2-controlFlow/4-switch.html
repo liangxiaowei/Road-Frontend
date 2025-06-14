@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { render } from "solid-js/web";
+      import { createSignal, Show, Switch, Match } from "solid-js";
+      import html from "html";
+
+      function App() {
+        const [x, setX] = createSignal(11);
+
+        setTimeout(() => {
+          setX(1);
+        }, 1000);
+
+        const fallback = html`<p>${x} is between 5 and 10</p>`;
+
+        // 不会响应
+        // return html`
+        //   <div>11${console.log("11")}</div>
+        //   <${Switch} fallback=${fallback}>
+        //     <${Match} when=${x() > 10}>
+        //       <p>${x} is greater than 10</p>
+        //     <//>
+        //     <${Match} when=${5 > x()}>
+        //       <p>${x} is less than 5</p>
+        //     <//>
+        //   <//>
+        // `;
+
+        // when 里面要用匿名函数，否则不会响应，容易忘记，出bug
+        return html`
+          <div>11${console.log("11")}</div>
+          <${Switch} fallback=${fallback}>
+            <${Match} when=${() => x() > 10}>
+              <p>${x} is greater than 10</p>
+            <//>
+            <${Match} when=${() => 5 > x()}>
+              <p>${x} is less than 5</p>
+            <//>
+          <//>
+        `;
+
+        // 这样全部包裹，导致全部都会重新创建
+        // return () => html`
+        //   <div>11${console.log("11")}</div>
+        //   <${Switch} fallback=${fallback}>
+        //     <${Match} when=${x() > 10}>
+        //       <p>${x} is greater than 10</p>
+        //     <//>
+        //     <${Match} when=${5 > x()}>
+        //       <p>${x} is less than 5</p>
+        //     <//>
+        //   <//>
+        // `;
+      }
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>

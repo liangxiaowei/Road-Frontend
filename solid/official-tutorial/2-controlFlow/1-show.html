@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      // show 简单源码
+      function Nt(e) {
+        let t = e.keyed,
+          r = e.when;
+        let n = r;
+        if (n) {
+          let i = e.children;
+          return i;
+        }
+        return e.fallback;
+      }
+      import { createSignal, Show } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+
+      const App = () => {
+        const [loggedIn, setLoggedIn] = createSignal(false);
+        const toggle = () => setLoggedIn(!loggedIn());
+
+        // html 多出一个箭头 【>】
+        // return html`<${Show}
+        //   when=${loggedIn}
+        //   fallback=${html`<button onClick=${toggle}>Log in</button>`}>
+
+        //   <button onClick=${toggle}>Log out</button>
+        // </${Show}>`;
+
+        // 不能响应，loggedIn() 应该被马上执行了。
+        // return html`<${Show}
+        //   when=${loggedIn()}
+        //   fallback=${html`<button onClick=${toggle}>Log in</button>`}
+        // >
+        //   <button onClick=${toggle}>Log out</button>
+        // <//>`;
+
+        // 需要 <//> 这样结尾。与 htm 有关。
+        return html`<${Show}
+          when=${loggedIn}
+          fallback=${html`<button onClick=${toggle}>Log in</button>`}
+        >
+          <button onClick=${toggle}>Log out</button>
+        <//>`;
+
+        // 模拟 多出一个箭头 bug
+        // return html`<${Nt}
+        //   when=${loggedIn}
+        //   fallback=${html`<button onClick=${toggle}>Log in</button>`}
+        // >
+        //   <button onClick=${toggle}>Log out</button>
+        // </${Nt}>`;
+
+        // return html`<${Nt}
+        //   when=${loggedIn}
+        //   fallback=${html`<div>1</div>`}
+        // ><//>`;
+
+        // 无效，只执行一次
+        // return loggedIn()
+        //   ? html` <button onClick=${toggle}>Log in</button>`
+        //   : html`<button onClick=${toggle}>Log out</button>`;
+        // loggedIn 是个 getter 函数，恒为 true
+        // return loggedIn
+        //   ? html` <button onClick=${toggle}>Log in</button>`
+        //   : html`<button onClick=${toggle}>Log out</button>`;
+
+        // 有效，实际创建了一个 effect?
+        // return () =>
+        //   loggedIn()
+        //     ? html` <button onClick=${toggle}>Log in</button>`
+        //     : html`<button onClick=${toggle}>Log out</button>`;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>

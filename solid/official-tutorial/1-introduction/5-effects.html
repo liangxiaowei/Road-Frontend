@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { createSignal, createEffect } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+
+      const App = () => {
+        console.log("render");
+        const [count, setCount] = createSignal(0); // count 是一个 getter 函数
+        createEffect(() => {
+          console.log("The count is now", count());
+        }); // 在渲染后执行
+
+        // createRenderEffect 在渲染前执行
+
+        return html`<button onClick=${() => setCount(count() + 1)}>
+          Click Me
+        </button>`;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>

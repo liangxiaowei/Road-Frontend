@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { onCleanup, createSignal } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+      import Nested from "./nested.js";
+
+      function App() {
+        return html` <h1>This is a Header</h1>
+          <${Nested} />`;
+      }
+      render(App, document.body);
+    </script>
+  </body>
+</html>
