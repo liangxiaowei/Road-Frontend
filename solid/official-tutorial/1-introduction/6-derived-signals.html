@@ -21,6 +21,7 @@
         const [count, setCount] = createSignal(0);
 
         const doubleCount = () => count() * 2; // 派生信号，会随之改变
+        // const doubleCount = count() * 2; // 需要用函数包裹
 
         const timer = setInterval(() => setCount(count() + 1), 1000); // 使用 count()
 
