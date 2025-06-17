@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { render, Dynamic } from "solid-js/web";
+      import { createSignal, Switch, Match, For } from "solid-js";
+      import html from "html";
+
+      const RedThing = () => html`<strong style="color: red">Red Thing</strong>`;
+      const GreenThing = () => html`<strong style="color: green">Green Thing</strong>`;
+      const BlueThing = () => html`<strong style="color: blue">Blue Thing</strong>`;
+
+      const options = {
+        red: RedThing,
+        green: GreenThing,
+        blue: BlueThing,
+      };
+
+      // const App = () => {
+      //   const [selected, setSelected] = createSignal("red");
+
+      //   return html`
+      //     <select value=${selected} onInput=${(e) => setSelected(e.currentTarget.value)}>
+      //       <${For} each=${Object.keys(options)}> ${(color) => html`<option value="${color}">${color}</option>`} <//>
+      //     </select>
+      //     <${Switch} fallback=${html`<${BlueThing} />`}>
+      //       <${Match} when=${() => selected() === "red"}><${RedThing} /><//>
+      //       <${Match} when=${() => selected() === "green"}><${GreenThing} /><//>
+      //     <//>
+      //   `;
+      // };
+
+      const App = () => {
+        const [selected, setSelected] = createSignal("red");
+
+        // component 里要用 匿名函数包，否则没有内容显示 ${Dynamic} component=${options[selected()]} />
+        return html`
+          <select value=${selected} onInput=${(e) => setSelected(e.currentTarget.value)}>
+            <${For} each=${Object.keys(options)}> ${(color) => html`<option value="${color}">${color}</option>`} <//>
+          </select>
+          <${Dynamic} component=${() => options[selected()]} />
+        `;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>

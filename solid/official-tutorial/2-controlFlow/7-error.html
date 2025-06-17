@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { onCleanup, createSignal, ErrorBoundary } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+
+      const Broken = (props) => {
+        throw new Error("Oh No");
+        return html`<div>Never Getting Here</div>`;
+      };
+
+      // 因为抛出错误，UI 一片空白
+      // const App = () => {
+      //   return html` <div>Before</div>
+      //     <${Broken} />
+
+      //     <div>After</div>`;
+      // };
+
+      const App = () => {
+        return html` <div>Before</div>
+          <${ErrorBoundary} fallback=${(err) => err}>
+            <${Broken} />
+          <//>
+
+          <div>After</div>`;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+    <style>
+      .photos {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 8px;
+      }
+
+      figure,
+      img {
+        width: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module">
+      import { onCleanup, createSignal, onMount, For } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+
+      const App = () => {
+        const [photos, setPhotos] = createSignal([]);
+
+        // 只运行一次，相当于一个不跟踪变化的 effect
+        onMount(async () => {
+          const res = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=20`);
+          setPhotos(await res.json());
+        });
+
+        return html`<h1>Photo album</h1>
+
+          <div class="photos">
+            <${For} each=${photos} fallback=${html`<p>Loading...</p>`}
+              >${(photo) => html`<figure>
+                <img src="${photo.thumbnailUrl}" alt="${photo.title}" />
+                <figcaption>${photo.title}</figcaption>
+              </figure>`}
+            <//>
+          </div>`;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>

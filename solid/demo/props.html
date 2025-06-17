@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { onCleanup, createSignal } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+
+      // 没有响应性
+      // const Count = (props) => {
+      //   return html` <div>${props.count}</div> `;
+      // };
+
+      // const Count = (props) => {
+      //   // 解构后没有响应性
+      //   const { count } = props;
+      //   console.log(count);
+
+      //   return html` <div>${count}</div> `;
+      //   return html` <div>${() => count}</div> `;
+      // };
+
+      const Count = (props) => {
+        return html` <div>${() => props.count}</div> `;
+      };
+
+      const App = () => {
+        const [count, setCount] = createSignal(0);
+        console.log(count);
+
+        setInterval(() => {
+          setCount(count() + 1);
+        }, 1000);
+
+        //
+        return html`<${Count} count=${count}><//>
+          <div>----</div>
+          <div>${count}</div> `;
+
+        // return html`<${Count} count=${() => count}><//>
+        //   <div>${count}</div> `;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>
