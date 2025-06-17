@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+    <style>
+      div {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module">
+      import { onCleanup, createSignal } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+
+      const App = () => {
+        const [pos, setPos] = createSignal({ x: 0, y: 0 });
+
+        function handleMouseMove(event) {
+          setPos({
+            x: event.clientX,
+            y: event.clientY,
+          });
+        }
+
+        // 全小写也可以，大小写不敏感
+        // return html`<div onmousemove="${handleMouseMove}">The mouse position is ${() => pos().x} x ${() => pos().y}</div>`;
+        return html`<div onMouseMove="${handleMouseMove}">The mouse position is ${() => pos().x} x ${() => pos().y}</div>`;
+
+        // on: 无效
+        // return html`<button on:DOMContentLoaded="${() => console.log("DOMContentLoaded")}">Click Me</button>`;
+
+        // 有效
+        // return html`<button DOMContentLoaded="${() => console.log("DOMContentLoaded")}">Click Me</button>`;
+        // // 全小写也有效
+        // return html`<button domcontentloaded="${() => console.log("DOMContentLoaded")}">Click Me</button>`;
+      };
+
+      render(App, document.body);
+
+      // 这是大小写敏感的
+      // document.addEventListener("DOMContentLoaded", () => {
+      //   alert("DOM ready!");
+      // });
+    </script>
+  </body>
+</html>

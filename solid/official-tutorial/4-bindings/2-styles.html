@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { onCleanup, createSignal } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+
+      const App = () => {
+        const [num, setNum] = createSignal(0);
+        const timer = setInterval(() => setNum((num() + 1) % 255), 30);
+
+        onCleanup(() => clearInterval(timer));
+
+        const style = () => {
+          return {
+            "background-color": "red",
+            color: `rgb(${num()}, 180, ${num()})`,
+            "font-weight": 800,
+            "font-size": `${num()}px`,
+          };
+        };
+        return html` <div style=${style}>Some Text</div>`;
+
+        // return html` <div
+        //   style=${() => {
+        //     return {
+        //       "background-color": "red",
+        //       color: `rgb(${num()}, 180, ${num()})`,
+        //       "font-weight": 800,
+        //       "font-size": `${num()}px`,
+        //     };
+        //   }}
+        // >
+        //   Some Text
+        // </div>`;
+        // return html` <div style=${() => `color: rgb(${num()}, 180, ${num()});font-weight: 800;font-size: ${num()}px`}>Some Text</div>`;
+
+        // 无响应
+        // return html` <div style=${`color: rgb(${num}, 180, ${num});font-weight: 800;font-size: ${num}px`}>Some Text</div>`;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>
