@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { onCleanup, createSignal } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+      import Info from "./6-info.js";
+
+      const pkg = {
+        name: "solid-js",
+        version: 1,
+        speed: "⚡️",
+        website: "https://solidjs.com",
+      };
+
+      const App = () => {
+        return html`<${Info} ...${pkg} />`;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>

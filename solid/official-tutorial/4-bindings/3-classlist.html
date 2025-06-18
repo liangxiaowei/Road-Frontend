@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+    <style>
+      button {
+        display: block;
+      }
+
+      .selected {
+        background-color: #ff3e00;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module">
+      import { onCleanup, createSignal } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+
+      const App = () => {
+        const [current, setCurrent] = createSignal("foo");
+
+        // return html`<button
+        //     class=${() => (current() === "foo" ? "selected" : "")}
+        //     onClick=${() => setCurrent("foo")}
+        //   >
+        //     foo
+        //   </button>
+        //   <button
+        //     class=${() => (current() === "bar" ? "selected" : "")}
+        //     onClick=${() => setCurrent("bar")}
+        //   >
+        //     bar
+        //   </button>
+        //   <button
+        //     class=${() => (current() === "baz" ? "selected" : "")}
+        //     onClick=${() => setCurrent("baz")}
+        //   >
+        //     baz
+        //   </button>`;
+
+        return html`<button
+            classList=${() => {
+              return {
+                selected: current() === "foo",
+              };
+            }}
+            onClick=${() => setCurrent("foo")}
+          >
+            foo
+          </button>
+          <button
+            classList=${() => {
+              return {
+                selected: current() === "bar",
+              };
+            }}
+            onClick=${() => setCurrent("bar")}
+          >
+            bar
+          </button>
+          <button
+            classList=${() => {
+              return {
+                selected: current() === "baz",
+              };
+            }}
+            onClick=${() => setCurrent("baz")}
+          >
+            baz
+          </button>`;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>

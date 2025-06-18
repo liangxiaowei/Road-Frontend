@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+    <style>
+      canvas {
+        background-color: #666;
+        -webkit-mask: url(https://www.solidjs.com/img/logo/dark-without-wordmark/logo.svg)
+          50% 50% no-repeat;
+        mask: url(https://www.solidjs.com/img/logo/dark-without-wordmark/logo.svg)
+          50% 50% no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module">
+      import { onCleanup, createSignal, onMount } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+      import Canvas from "./5-canvas.js";
+
+      const App = () => {
+        let canvas;
+        onMount(() => {
+          const ctx = canvas.getContext("2d");
+          let frame = requestAnimationFrame(loop);
+
+          function loop(t) {
+            frame = requestAnimationFrame(loop);
+
+            const imageData = ctx.getImageData(
+              0,
+              0,
+              canvas.width,
+              canvas.height
+            );
+
+            for (let p = 0; p < imageData.data.length; p += 4) {
+              const i = p / 4;
+              const x = i % canvas.width;
+              const y = (i / canvas.height) >>> 0;
+
+              const r = 64 + (128 * x) / canvas.width + 64 * Math.sin(t / 1000);
+              const g =
+                64 + (128 * y) / canvas.height + 64 * Math.cos(t / 1000);
+              const b = 128;
+
+              imageData.data[p + 0] = r;
+              imageData.data[p + 1] = g;
+              imageData.data[p + 2] = b;
+              imageData.data[p + 3] = 255;
+            }
+
+            ctx.putImageData(imageData, 0, 0);
+          }
+
+          onCleanup(() => cancelAnimationFrame(frame)); // onCleanUp 可以嵌套在 onMount 里
+        });
+
+        // ref 获得 真实的 dom 元素对象
+        return html`<${Canvas} ref=${(e) => (canvas = e)} />`;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>
