@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { onCleanup, createSignal, mergeProps } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+
+      function Greeting1(props) {
+        console.log(props);
+        return html`<h3>
+          ${() => props.greeting || "Hi"}${" "}${() => props.name || "John"}
+        </h3>`;
+        // 无响应性
+        // return html`<h3>
+        //   ${props.greeting || "Hi"}${" "}${props.name || "John"}
+        // </h3>`;
+      }
+
+      function Greeting(props) {
+        console.log("props");
+        console.log(props);
+
+        const merged = mergeProps({ greeting: "Hi", name: "John" }, props);
+
+        // 有问题
+        // const merged = { greeting: "Hi", name: "John", ...props };
+
+        console.log("merged");
+        console.log(merged);
+        // merged.name 不是 getter 为什么还有响应性
+        return html`<h3>
+          ${() => merged.greeting}${" "}${() => merged.name}
+        </h3>`;
+
+        // 无响应性
+        // return html`<h3>${merged.greeting}${" "}${merged.name}</h3>`;
+      }
+
+      const App = () => {
+        const [name, setName] = createSignal();
+
+        console.log(name);
+        console.log(name());
+
+        return html`<${Greeting} greeting="Hello" />
+          <${Greeting} name="Jeremy" />
+          <${Greeting} name="${name}" />
+          <button onClick=${() => setName("Jarod")}>Set Name</button> `;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>
