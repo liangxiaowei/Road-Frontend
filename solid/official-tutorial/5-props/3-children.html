@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import {
+        onCleanup,
+        createSignal,
+        For,
+        createEffect,
+        children,
+      } from "solid-js";
+      import { render, memo } from "solid-js/web";
+      import html from "html";
+
+      function ColoredList(props) {
+        console.log(props);
+        // const c = () => props.children;
+
+        const c = children(() => props.children); // 避免重复创建 children，且可以直接拿到 children dom 对象
+
+        createEffect(() =>
+          c().forEach((item) => {
+            item.style.color = props.color;
+          })
+        );
+
+        return html`<div>222</div>
+          ${memo(c)}`;
+
+        // return memo(c);
+      }
+
+      const App = () => {
+        const [color, setColor] = createSignal("purple");
+
+        return html` <${ColoredList} color=${color}>
+            <${For} each=${["Most", "Interesting", "Thing"]}>
+              ${(item) => {
+                console.log(`${item}`);
+                return html`<div>${item}</div>`;
+              }}
+            <//>
+          <//>
+          <button onClick=${() => setColor("teal")}>Set Color</button>`;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>

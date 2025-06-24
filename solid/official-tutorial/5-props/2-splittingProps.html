@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { onCleanup, createSignal, splitProps } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+
+      function Greeting1(props) {
+        const { greeting, name, ...others } = props;
+        // 无响应性
+        console.log(greeting);
+        console.log(name);
+        console.log(others);
+
+        return html`<h3 ...${others}>${greeting} ${" "}${name}</h3>`;
+      }
+
+      function Greeting(props) {
+        const [local, others] = splitProps(props, ["greeting", "name"]);
+
+        console.log("splitProps");
+        console.log(local);
+        console.log(others);
+
+        return html`<h3 ...${others}>
+          ${() => local.greeting} ${" "}${() => local.name}
+        </h3>`;
+
+        // 无响应性
+        // return html`<h3 ...${others}>
+        //   ${local.greeting} ${" "}${local.name}
+        // </h3>`;
+      }
+
+      const App = () => {
+        const [name, setName] = createSignal("Jakob");
+
+        console.log(name);
+        console.log(name());
+
+        return html`<${Greeting}
+            greeting="Yo"
+            name=${name}
+            style="color: teal;"
+          />
+          <button onClick=${() => setName("Jarod")}>Set Name</button> `;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>

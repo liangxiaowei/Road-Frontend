@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.9.0",
+          "solid-js/web": "https://esm.sh/solid-js@1.9.0/web",
+          "solid-js/store": "https://esm.sh/solid-js@1.9.0/store",
+          "html": "https://esm.sh/solid-js@1.9.0/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { template as _$template } from "solid-js/web";
+      import { delegateEvents as _$delegateEvents } from "solid-js/web";
+      import { insert as _$insert } from "solid-js/web";
+      import { effect as _$effect } from "solid-js/web";
+      import { createComponent as _$createComponent } from "solid-js/web";
+      import { use as _$use } from "solid-js/web";
+      const _tmpl$ = /*#__PURE__*/ _$template(`<div><input><button>Add Todo`),
+        _tmpl$2 = /*#__PURE__*/ _$template(
+          `<div><input type="checkbox"><span>`
+        );
+      import { render } from "solid-js/web";
+      import { For } from "solid-js";
+      import { createStore } from "solid-js/store";
+      const App = () => {
+        let input;
+        let todoId = 0;
+        const [todos, setTodos] = createStore([]);
+        const addTodo = (text) => {
+          setTodos([
+            ...todos,
+            {
+              id: ++todoId,
+              text,
+              completed: false,
+            },
+          ]);
+        };
+        const toggleTodo = (id) => {
+          setTodos(
+            (todo) => todo.id === id,
+            "completed",
+            (completed) => !completed
+          );
+        };
+        console.log(todos);
+        return [
+          (() => {
+            const _el$ = _tmpl$(),
+              _el$2 = _el$.firstChild,
+              _el$3 = _el$2.nextSibling;
+            const _ref$ = input;
+            typeof _ref$ === "function" ? _$use(_ref$, _el$2) : (input = _el$2);
+            _el$3.$$click = (e) => {
+              if (!input.value.trim()) return;
+              addTodo(input.value);
+              input.value = "";
+            };
+            return _el$;
+          })(),
+          _$createComponent(For, {
+            each: todos,
+            children: (todo) => {
+              const { id, text } = todo;
+              console.log(`Creating ${text}`);
+              return (() => {
+                const _el$4 = _tmpl$2(),
+                  _el$5 = _el$4.firstChild,
+                  _el$6 = _el$5.nextSibling;
+                _el$5.addEventListener("change", (e) => toggleTodo(id, e));
+                _$insert(_el$6, text);
+                _$effect(() =>
+                  (todo.completed ? "line-through" : "none") != null
+                    ? _el$6.style.setProperty(
+                        "text-decoration",
+                        todo.completed ? "line-through" : "none"
+                      )
+                    : _el$6.style.removeProperty("text-decoration")
+                );
+                _$effect(() => (_el$5.checked = todo.completed));
+                return _el$4;
+              })();
+            },
+          }),
+        ];
+      };
+      render(App, document.body);
+      _$delegateEvents(["click"]);
+    </script>
+  </body>
+</html>

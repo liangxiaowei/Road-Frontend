@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <script type="importmap">
+      {
+        "imports": {
+          "solid-js": "https://esm.sh/solid-js@1.8.1",
+          "solid-js/web": "https://esm.sh/solid-js@1.8.1/web",
+          "html": "https://esm.sh/solid-js@1.8.1/html"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <script type="module">
+      import { onCleanup, createSignal, For } from "solid-js";
+      import { render } from "solid-js/web";
+      import html from "html";
+
+      const App = () => {
+        const [todos, setTodos] = createSignal([]);
+        let input;
+        let todoId = 0;
+
+        const addTodo = (text) => {
+          setTodos([...todos(), { id: ++todoId, text, completed: false }]);
+        };
+
+        // toggle 会重复创建 element
+        const toggleTodo = (id) => {
+          setTodos(
+            todos().map((todo) =>
+              todo.id !== id ? todo : { ...todo, completed: !todo.completed }
+            )
+          );
+        };
+
+        return html`<div>
+            <input ref=${(e) => (input = e)} />
+            <button
+              onClick=${(e) => {
+                if (!input.value.trim()) return;
+                addTodo(input.value);
+                input.value = "";
+              }}
+            >
+              Add Todo
+            </button>
+          </div>
+          <${For} each=${todos}>
+            ${(todo) => {
+              const { id, text } = todo;
+              console.log(`Creating ${text}`);
+              return html`<div>
+                <input
+                  type="checkbox"
+                  checked=${todo.completed}
+                  onchange=${[toggleTodo, id]}
+                />
+                <span
+                  style="${{
+                    "text-decoration": todo.completed ? "line-through" : "none",
+                  }}"
+                >
+                  ${text}
+                </span>
+              </div>`;
+            }}
+          <//>`;
+      };
+
+      render(App, document.body);
+    </script>
+  </body>
+</html>
