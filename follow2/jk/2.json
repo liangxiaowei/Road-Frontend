@@ -1,0 +1,173 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id": "5b17e1d11d9fee0011c9c101",
+      "username": "547230e1-c1b2-4391-87e3-a218fb6508f7",
+      "screenName": "嘉嘉紫",
+      "briefIntro": "文学史、明史专家李洁非曾说：「明史与当代之间，关系独特。明史，可称“古代史里的当代史”；当代，则有“现代明史”的意味。」",
+      "avatarImage": {
+        "format": "jpeg",
+        "picUrl": "https://cdnv2.ruguoapp.com/FiQbD0COvqI1o_M5YZ8PHUu1ntnN.png?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!1000x1000r/gravity/Center/crop/!1000x1000a0a0",
+        "middlePicUrl": "https://cdnv2.ruguoapp.com/FiQbD0COvqI1o_M5YZ8PHUu1ntnN.png?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!800x800r/gravity/Center/crop/!800x800a0a0",
+        "smallPicUrl": "https://cdnv2.ruguoapp.com/FiQbD0COvqI1o_M5YZ8PHUu1ntnN.png?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!300x300r/gravity/Center/crop/!300x300a0a0",
+        "thumbnailUrl": "https://cdnv2.ruguoapp.com/FiQbD0COvqI1o_M5YZ8PHUu1ntnN.png?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!120x120r/gravity/Center/crop/!120x120a0a0",
+        "themes": {},
+        "livePhoto": null
+      },
+      "profileImageUrl": "https://cdnv2.ruguoapp.com/FiQbD0COvqI1o_M5YZ8PHUu1ntnN.png?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!120x120r/gravity/Center/crop/!120x120a0a0",
+      "bio": "文学史、明史专家李洁非曾说：「明史与当代之间，关系独特。明史，可称“古代史里的当代史”；当代，则有“现代明史”的意味。」",
+      "trailingIcons": [],
+      "ref": "PROFILE_MY_FOLLOWERS",
+      "hasStories": false,
+      "storyStatus": "NONE",
+      "customScreenName": "",
+      "live": null,
+      "type": "",
+      "decorations": {
+        "campaign": null,
+        "sponsor": {
+          "picUrl": "https://cdnv2.ruguoapp.com/resources/userProfile/DEFAULT_STROKED_SPONSOR_ICON_LIGHT.png",
+          "themes": {
+            "dark": {
+              "picUrl": "https://cdnv2.ruguoapp.com/resources/userProfile/DEFAULT_STROKED_SPONSOR_ICON_DARK.png"
+            }
+          },
+          "livePhoto": null
+        }
+      },
+      "following": false,
+      "muting": false,
+      "isWatching": false,
+      "statsCount": {
+        "highlightedPersonalUpdates": 0,
+        "topicCreated": 0,
+        "followedCount": 104,
+        "liked": 28,
+        "topicSubscribed": 0,
+        "followingCount": 2676,
+        "respectedCount": 0
+      }
+    },
+    {
+      "id": "61a283637626bc0010c9091b",
+      "username": "89b1fadc-e902-4745-b757-0f7680d82dcc",
+      "screenName": "呆羊",
+      "briefIntro": "野百合书店的主理人，\n有一档播客节目《正在皮脸》。\n黄即有（部分）最真实的自己。",
+      "avatarImage": {
+        "format": "jpeg",
+        "picUrl": "https://cdnv2.ruguoapp.com/FpHtXIGV_TWpckFAhlaeinn7PAiBv2.png?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!1000x1000r/gravity/Center/crop/!1000x1000a0a0",
+        "middlePicUrl": "https://cdnv2.ruguoapp.com/FpHtXIGV_TWpckFAhlaeinn7PAiBv2.png?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!800x800r/gravity/Center/crop/!800x800a0a0",
+        "smallPicUrl": "https://cdnv2.ruguoapp.com/FpHtXIGV_TWpckFAhlaeinn7PAiBv2.png?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!300x300r/gravity/Center/crop/!300x300a0a0",
+        "thumbnailUrl": "https://cdnv2.ruguoapp.com/FpHtXIGV_TWpckFAhlaeinn7PAiBv2.png?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!120x120r/gravity/Center/crop/!120x120a0a0",
+        "themes": {},
+        "livePhoto": null
+      },
+      "profileImageUrl": "https://cdnv2.ruguoapp.com/FpHtXIGV_TWpckFAhlaeinn7PAiBv2.png?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!120x120r/gravity/Center/crop/!120x120a0a0",
+      "bio": "野百合书店的主理人，\n有一档播客节目《正在皮脸》。\n黄即有（部分）最真实的自己。",
+      "trailingIcons": [],
+      "ref": "PROFILE_MY_FOLLOWERS",
+      "hasStories": false,
+      "storyStatus": "NONE",
+      "customScreenName": "",
+      "live": null,
+      "type": "",
+      "decorations": {
+        "campaign": null,
+        "sponsor": null
+      },
+      "following": true,
+      "muting": false,
+      "isWatching": false,
+      "statsCount": {
+        "highlightedPersonalUpdates": 3,
+        "topicCreated": 0,
+        "followedCount": 332,
+        "liked": 1028,
+        "topicSubscribed": 0,
+        "followingCount": 551,
+        "respectedCount": 2
+      }
+    },
+    {
+      "id": "5cf7a56a37414b00100eb227",
+      "username": "eec21ade-4f5b-4c03-853f-496225176a56",
+      "screenName": "guyskk",
+      "briefIntro": "半独立开发者 blog.guyskk.com",
+      "avatarImage": {
+        "format": "jpeg",
+        "picUrl": "https://cdnv2.ruguoapp.com/FrHlZ8_AtP-N1uNWYHuWD5925WAFv3.jpg?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!1000x1000r/gravity/Center/crop/!1000x1000a0a0",
+        "middlePicUrl": "https://cdnv2.ruguoapp.com/FrHlZ8_AtP-N1uNWYHuWD5925WAFv3.jpg?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!800x800r/gravity/Center/crop/!800x800a0a0",
+        "smallPicUrl": "https://cdnv2.ruguoapp.com/FrHlZ8_AtP-N1uNWYHuWD5925WAFv3.jpg?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!300x300r/gravity/Center/crop/!300x300a0a0",
+        "thumbnailUrl": "https://cdnv2.ruguoapp.com/FrHlZ8_AtP-N1uNWYHuWD5925WAFv3.jpg?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!120x120r/gravity/Center/crop/!120x120a0a0",
+        "themes": {},
+        "livePhoto": null
+      },
+      "profileImageUrl": "https://cdnv2.ruguoapp.com/FrHlZ8_AtP-N1uNWYHuWD5925WAFv3.jpg?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/!120x120r/gravity/Center/crop/!120x120a0a0",
+      "bio": "半独立开发者 blog.guyskk.com",
+      "trailingIcons": [],
+      "ref": "PROFILE_MY_FOLLOWERS",
+      "hasStories": false,
+      "storyStatus": "NONE",
+      "customScreenName": "",
+      "live": null,
+      "type": "",
+      "decorations": {
+        "campaign": null,
+        "sponsor": null
+      },
+      "following": true,
+      "muting": false,
+      "isWatching": false,
+      "statsCount": {
+        "highlightedPersonalUpdates": 0,
+        "topicCreated": 0,
+        "followedCount": 177,
+        "liked": 98,
+        "topicSubscribed": 0,
+        "followingCount": 375,
+        "respectedCount": 0
+      }
+    },
+    {
+      "id": "5c2d9b2a25a9080017aa6eed",
+      "username": "07EBE9FB-DF8E-4C2E-86BF-10621C51FC50",
+      "screenName": "高登",
+      "briefIntro": "👨🏻‍💻 Creator of Moon FM Podcast App",
+      "avatarImage": {
+        "format": "jpeg",
+        "picUrl": "https://cdnv2.ruguoapp.com/FmX2DaKFNCxQOLLn9NahUZEKndE4?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/1000x1000%3E",
+        "middlePicUrl": "https://cdnv2.ruguoapp.com/FmX2DaKFNCxQOLLn9NahUZEKndE4?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/800x800%3E",
+        "smallPicUrl": "https://cdnv2.ruguoapp.com/FmX2DaKFNCxQOLLn9NahUZEKndE4?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/300x300%3E",
+        "thumbnailUrl": "https://cdnv2.ruguoapp.com/FmX2DaKFNCxQOLLn9NahUZEKndE4?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/120x120%3E",
+        "themes": {},
+        "livePhoto": null
+      },
+      "profileImageUrl": "https://cdnv2.ruguoapp.com/FmX2DaKFNCxQOLLn9NahUZEKndE4?imageMogr2/auto-orient/heic-exif/1/format/jpeg/thumbnail/120x120%3E",
+      "bio": "👨🏻‍💻 Creator of Moon FM Podcast App",
+      "trailingIcons": [],
+      "ref": "PROFILE_MY_FOLLOWERS",
+      "hasStories": false,
+      "storyStatus": "NONE",
+      "customScreenName": "",
+      "live": null,
+      "type": "",
+      "decorations": {
+        "campaign": null,
+        "sponsor": null
+      },
+      "following": true,
+      "muting": false,
+      "isWatching": false,
+      "statsCount": {
+        "highlightedPersonalUpdates": 1,
+        "topicCreated": 0,
+        "followedCount": 473,
+        "liked": 425,
+        "topicSubscribed": 0,
+        "followingCount": 458,
+        "respectedCount": 3
+      }
+    }
+  ]
+}

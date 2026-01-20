@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JK 用户列表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .upload-area {
+            background: white;
+            border: 2px dashed #ddd;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .upload-area:hover {
+            border-color: #4CAF50;
+            background: #f9f9f9;
+        }
+        .upload-area input {
+            display: none;
+        }
+        .upload-text {
+            color: #666;
+            font-size: 16px;
+        }
+        .user-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+        .user-card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .user-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .user-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .user-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+        .user-intro {
+            font-size: 14px;
+            color: #666;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .stats {
+            font-size: 12px;
+            color: #999;
+            margin-top: 4px;
+        }
+        .empty {
+            text-align: center;
+            color: #999;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JK 用户列表 <span id="totalCount" style="font-size: 16px; font-weight: normal; color: #999;"></span></h1>
+        <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+            <input type="file" id="fileInput" accept=".json">
+            <p class="upload-text">点击选择 merged.json 文件</p>
+        </div>
+        <div class="user-list" id="userList"></div>
+    </div>
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                try {
+                    const users = JSON.parse(event.target.result);
+                    renderUsers(users);
+                } catch (error) {
+                    alert('解析 JSON 文件失败：' + error.message);
+                }
+            };
+            reader.readAsText(file);
+        });
+
+        function renderUsers(users) {
+            const container = document.getElementById('userList');
+            container.innerHTML = '';
+
+            if (!Array.isArray(users) || users.length === 0) {
+                container.innerHTML = '<p class="empty">暂无用户数据</p>';
+                document.getElementById('totalCount').textContent = '总人数：0';
+                return;
+            }
+
+            document.getElementById('totalCount').textContent = `总人数：${users.length}`;
+
+            users.forEach(user => {
+                const card = document.createElement('a');
+                card.className = 'user-card';
+                card.href = `https://web.okjike.com/u/${user.username}`;
+                card.target = '_blank';
+
+                card.innerHTML = `
+                    <img class="user-avatar" src="${user.profileImageUrl || user.avatarImage?.thumbnailUrl || ''}" alt="头像">
+                    <div class="user-info">
+                        <div class="user-name">${escapeHtml(user.screenName || '')}</div>
+                        <div class="user-intro">${escapeHtml(user.briefIntro || '')}</div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>
