@@ -1,7 +1,8 @@
+// 组件的首字母必须要大写，小写的组件会被当作HTML标签处理
 export function Card({ name, title, bio }) {
-  return (
+  return ( //分行的话，必须要加括号
     <>
-      <div className="card">
+      <div className="card"> {/* 这里的 div 为小写开头，所以会被当作 html 元素 */}
         <h1>{name}</h1>
         <p className="card-title">{title}</p>
         <p>{bio}</p>
